@@ -29,6 +29,13 @@ const projects: Project[] = [
     stacks: ["Python", "Pandas", "Scikit-learn", "Streamlit"],
     github: "https://github.com/samaalibassem123/My-first-Hackathon",
   },
+  {
+    name: "Bob the Ai_LaptopAssistent",
+    desc: "A fun, helpful, and slightly sarcastic AI laptop assistant named Bob, built with LangGraph, LangChain, and Google Gemini.Bob acts like a real desktop assistant: he can interact with your laptop (via tools), explain what he's doing in a clear and friendly way, and always adds a touch of humor and sarcasm.",
+    vd: "Bobo-ai-laptop-vd.mp4",
+    stacks: ["Python", "Google Gemini", "LangChain", "LangGraph"],
+    github: "https://github.com/samaalibassem123/Ai_LaptopAssistent.git",
+  },
 ];
 
 export default function Projects() {

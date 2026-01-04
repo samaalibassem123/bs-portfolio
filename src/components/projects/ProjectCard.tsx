@@ -14,11 +14,15 @@ export default function ProjectCard({ project }: Props) {
           "mask-alpha h-[250px] cursor-pointer bg-black backdrop-blur-3xl overflow-hidden  border-b group"
         )}
       >
-        <img
-          src={project.img}
-          className=" w-full h-full group-hover:scale-105 transition-all grayscale group-hover:grayscale-0    duration-300 ease-in-out"
-          alt=""
-        />
+        {project.img ? (
+          <img
+            src={project.img}
+            className=" w-full h-full group-hover:scale-105 transition-all grayscale group-hover:grayscale-0    duration-300 ease-in-out"
+            alt=""
+          />
+        ) : (
+          <video src={"/" + project.vd} controls></video>
+        )}
       </div>
       <div className=" flex flex-col p-4 space-y-3">
         <Title className="text-lg ">{project.name}</Title>
