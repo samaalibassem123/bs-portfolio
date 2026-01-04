@@ -21,7 +21,11 @@ export default function ProjectCard({ project }: Props) {
             alt=""
           />
         ) : (
-          <video src={"/" + project.vd} controls></video>
+          <video
+            src={"/" + project.vd}
+            className=" w-full h-full "
+            controls
+          ></video>
         )}
       </div>
       <div className=" flex flex-col p-4 space-y-3">
