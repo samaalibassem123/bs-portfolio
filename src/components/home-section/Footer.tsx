@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 import SmallLabel from "../ui/SmallLabel";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 type TechStack = {
   label: string;
   url: string;
@@ -33,6 +34,7 @@ const techStack: TechStack[] = [
   { label: "Pandas", url: "https://pandas.pydata.org/" },
   { label: "Scikit-learn", url: "https://scikit-learn.org/" },
   { label: "Streamlit", url: "https://streamlit.io/" },
+  { label: "LangChain", url: "https://www.langchain.com/" },
 ];
 const languages: Language[] = [
   { label: "C", url: "https://en.cppreference.com/w/c" },
@@ -61,31 +63,37 @@ export default function Footer() {
   return (
     <div className=" flex flex-col sm:h-[150px] w-full">
       <NavMenu selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} />
-
-      <div className="flex gap-2 p-7    w-full overflow-auto  items-center xl:justify-center ">
-        {selectedMenu === "Technologies" &&
-          techStack.map((tech) => (
-            <SmallLabel
-              className="motion-preset-focus"
-              key={tech.url}
-              url={tech.url}
-            >
-              {tech.label}
-            </SmallLabel>
-          ))}
-        {selectedMenu === "programming language" &&
-          languages.map((l) => (
-            <SmallLabel className="motion-preset-focus" key={l.url} url={l.url}>
-              {l.label}
-            </SmallLabel>
-          ))}
-        {selectedMenu === "Languages" &&
-          languageSkills.map((l) => (
-            <SmallLabel className="motion-preset-focus" key={l.label}>
-              {l.label} : {l.level}
-            </SmallLabel>
-          ))}
-      </div>
+      <ScrollArea className="w-full ">
+        <div className="flex gap-2 p-7  items-center xl:justify-center ">
+          {selectedMenu === "Technologies" &&
+            techStack.map((tech) => (
+              <SmallLabel
+                className="motion-preset-focus"
+                key={tech.url}
+                url={tech.url}
+              >
+                {tech.label}
+              </SmallLabel>
+            ))}
+          {selectedMenu === "programming language" &&
+            languages.map((l) => (
+              <SmallLabel
+                className="motion-preset-focus"
+                key={l.url}
+                url={l.url}
+              >
+                {l.label}
+              </SmallLabel>
+            ))}
+          {selectedMenu === "Languages" &&
+            languageSkills.map((l) => (
+              <SmallLabel className="motion-preset-focus" key={l.label}>
+                {l.label} : {l.level}
+              </SmallLabel>
+            ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
     </div>
   );
 }
