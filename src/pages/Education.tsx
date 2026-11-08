@@ -8,14 +8,19 @@ import type { Education } from "../types/education";
 
 const educations: Education[] = [
   {
+    schoolname: "Faculty of Economics and Management of Tunis",
+    name: "Master’s Degree in Data Science",
+    date: "2026-present",
+  },
+  {
+    schoolname: "Faculty of Economics and Management of Tunis",
+    name: "Bachelor’s Degree in Business Intelligence",
+    date: "2023-2026",
+  },
+  {
     schoolname: "Omrane superieur",
     name: "High School Diploma in Computer Science",
     date: "2022-2023",
-  },
-  {
-    schoolname: "Faculty of Economics and Management of Tunis ",
-    name: "Bachelor’s Degree in Business Intelligence ",
-    date: " 2023-present",
   },
 ];
 
@@ -30,7 +35,7 @@ export default function Education() {
         <PageTitle>Education</PageTitle>
         <div className="flex flex-col gap-7">
           {educations.map((ed) => (
-            <EducationCard key={ed.schoolname} education={ed} />
+            <EducationCard key={`${ed.schoolname}-${ed.name}`} education={ed} />
           ))}
         </div>
       </PageContainer>

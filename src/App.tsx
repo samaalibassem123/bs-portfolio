@@ -9,8 +9,7 @@ import Education from "./pages/Education";
 import Experience from "./pages/Experience";
 import Header from "./components/Header/Header";
 import Logo from "./components/Header/Logo";
-
-import Menu from "./components/Header/Menu";
+import Navbar from "./components/Header/Navbar";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,7 +26,7 @@ function App() {
         <div className="flex flex-col h-svh w-full">
           <Header>
             <Logo />
-            <Menu />
+            <Navbar />
           </Header>
           <AnimatePresence mode="wait">
             <Routes>

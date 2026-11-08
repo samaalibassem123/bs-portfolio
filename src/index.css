@@ -20,18 +20,31 @@
   @apply flex items-center justify-center bg-black backdrop-blur-3xl z-60 absolute top-0 left-0 w-full h-svh text-white font-manrope sm:text-9xl text-7xl ;
 }
 
-@keyframes scroll-bar {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.animate-scroll-bar {
-  animation: scroll-bar 3s linear infinite;
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
 }
 
 @theme inline {
